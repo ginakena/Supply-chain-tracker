@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { isAddress } from "viem";
 import { useWaitForTransactionReceipt, useWriteContract, useReadContract } from "wagmi";
-// import { CONTRACT_ADDRESS, CONTRACT_ABI, ROLES, type RoleName } from "@/lib/contract";
+import { CONTRACT_ADDRESS, CONTRACT_ABI, ROLES, type RoleName } from "@/lib/contract";
 import { RoleGate } from "@/components/RoleGate";
 // import { formatAddress } from "@/lib/format";
 
@@ -34,16 +34,16 @@ function RoleChecker() {
   const [checkAddress, setCheckAddress] = useState("");
   const [submitted, setSubmitted] = useState("");
 
-//   const results = GRANTABLE_ROLES.map(({ key }) =>
-//     // eslint-disable-next-line react-hooks/rules-of-hooks
-//     useReadContract({
-//       address: CONTRACT_ADDRESS,
-//       abi: CONTRACT_ABI,
-//       functionName: "hasRole",
-//       args: [ROLES[key], submitted as `0x${string}`],
-//       query: { enabled: !!submitted && isAddress(submitted) },
-//     })
-//   );
+  const results = GRANTABLE_ROLES.map(({ key }) =>
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useReadContract({
+      address: CONTRACT_ADDRESS,
+      abi: CONTRACT_ABI,
+      functionName: "hasRole",
+      args: [ROLES[key], submitted as `0x${string}`],
+      query: { enabled: !!submitted && isAddress(submitted) },
+    })
+  );
 
   return (
     <div className="rounded-sm border-2 border-rule bg-paper-card/60 p-5">
