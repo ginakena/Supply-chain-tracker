@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Supply Chain Tracker — Frontend
 
-## Getting Started
+A Next.js 14 dashboard for interacting with the `SupplyChainTracker` smart contract.
+Connects via wagmi v2 + RainbowKit; works with any wallet (MetaMask, Coinbase, WalletConnect, injected).
 
-First, run the development server:
+## Stack
+
+- **Next.js 14** (App Router)
+- **wagmi v2** + **viem** — typed contract reads and writes
+- **RainbowKit** — one-click wallet connection
+- **Tailwind CSS** — utility-first styling
+- **Fraunces** (display) + **IBM Plex Sans** / **Mono** (body/labels) — via next/font/google
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Home: tracking search, role desk cards, live recent-products ledger |
+| `/track/[tokenId]` | Product detail: metadata, serial-number authenticity check, full custody timeline, QR code |
+| `/manufacturer` | Mint new products (requires `MANUFACTURER_ROLE`) |
+| `/shipper` | Record pickup & transit checkpoints (requires `SHIPPER_ROLE`) |
+| `/retailer` | Record store receipt and sell to consumer (requires `RETAILER_ROLE`) |
+| `/admin` | Grant / revoke roles, check roles for any address (requires `DEFAULT_ADMIN_ROLE`) |
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# From the frontend/ directory:
+npm install
+
+# Copy the env template and fill in your values
+cp .env.local.example .env.local
+
+npm run dev   # → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Required | Description |
+|---|---|---|
+| `NEXT_PUBLIC_CONTRACT_ADDRESS` | ✅ | Deployed `SupplyChainTracker` address |
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | ✅ | Get one free at https://cloud.reown.com |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `frontend/.env.local`:
+```env
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x…
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=…
+```
 
-## Learn More
+## Using with a local Anvil network
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Start Anvil: `anvil`
+2. Deploy the contract: `cd ../contracts && forge script script/Deploy.s.sol:Deploy --rpc-url localhost --broadcast`
+3. Copy the deployed address into `.env.local`
+4. In MetaMask (or any wallet), add Anvil as a custom network:
+   - RPC URL: `http://127.0.0.1:8545`
+   - Chain ID: `31337`
+   - Currency: `ETH`
+5. Import one of Anvil's funded test accounts using its private key
+6. Use the **Admin** desk (you're already the deployer/admin) to grant roles to other test accounts, then go through the full lifecycle from the other desks
