@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #efe9dd;
+  background-image: radial-gradient(circle at 1px 1px, rgba(27, 36, 48, 0.05) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+.rule-dashed {
+  border-style: dashed;
+  border-color: #c9bfa8;
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-offset-2 ring-stamp-rust ring-offset-paper;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
