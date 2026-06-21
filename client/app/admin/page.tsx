@@ -5,7 +5,7 @@ import { isAddress } from "viem";
 import { useWaitForTransactionReceipt, useWriteContract, useReadContract } from "wagmi";
 import { CONTRACT_ADDRESS, CONTRACT_ABI, ROLES, type RoleName } from "@/lib/contract";
 import { RoleGate } from "@/components/RoleGate";
-// import { formatAddress } from "@/lib/format";
+import { formatAddress } from "@/lib/format";
 
 const GRANTABLE_ROLES: { key: RoleName; label: string; description: string }[] = [
   {
