@@ -3,7 +3,7 @@
 import { type ReactNode } from "react";
 import { useAccount, useReadContract } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-// import { CONTRACT_ADDRESS, CONTRACT_ABI, ROLES } from "@/lib/contract";
+import { CONTRACT_ADDRESS, CONTRACT_ABI, ROLES } from "@/lib/contract";
 
 export function RoleGate({
   role,
