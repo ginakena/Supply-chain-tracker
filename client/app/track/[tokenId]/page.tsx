@@ -5,11 +5,11 @@ import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { useReadContract } from "wagmi";
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from "@/lib/contract";
-// import { StageBadge } from "@/components/StageBadge";
-// import { Timeline } from "@/components/Timeline";
-// import { VerifiedStamp } from "@/components/VerifiedStamp";
+import { StageBadge } from "@/components/StageBadge";
+import { Timeline } from "@/components/Timeline";
+import { VerifiedStamp } from "@/components/verifiedStamp";
 import { formatAddress, formatTimestamp } from "@/lib/format";
-// import type { Product, TrackingEvent } from "@/lib/types";
+import type { Product, TrackingEvent } from "@/lib/types";
 
 export default function TrackPage({ params }: { params: { tokenId: string } }) {
   const tokenId = (() => {
