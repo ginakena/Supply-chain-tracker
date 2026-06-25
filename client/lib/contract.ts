@@ -1,8 +1,7 @@
 import { keccak256, toBytes, zeroHash } from "viem";
 import { supplyChainTrackerAbi } from "./abi";
 
-// Set this after deploying SupplyChainTracker (see contracts/README.md).
-// You can also override it per-environment with NEXT_PUBLIC_CONTRACT_ADDRESS.
+
 export const CONTRACT_ADDRESS = (process.env.NEXT_PUBLIC_CONTRACT_ADDRESS ||
   "0x5FbDB2315678afecb367f032d93F642f64180aa3") as `0x${string}`;
 
