@@ -16,22 +16,14 @@
 "use client";
 
 import { createConfig, http } from "wagmi";
-import { foundry, sepolia } from "wagmi/chains";
+import { foundry } from "wagmi/chains";
 import { injected } from "wagmi/connectors";
-import { connectorsForWallets } from "@rainbow-me/rainbowkit";
-import { injectedWallet, metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
-
-const connectors = connectorsForWallets(
-  [{ groupName: "Wallets", wallets: [injectedWallet, metaMaskWallet] }],
-  { appName: "Supply Chain Tracker", projectId: "dummy" }
-);
 
 export const wagmiConfig = createConfig({
-  connectors,
-  chains: [foundry, sepolia],
+  connectors: [injected()],
+  chains: [foundry],
   transports: {
-    [foundry.id]: http(),
-    [sepolia.id]: http(),
+    [foundry.id]: http("http://127.0.0.1:8545"),
   },
   ssr: true,
 });
