@@ -16,7 +16,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="border-b-2 border-ink bg-ink text-paper-card">
+    <header className="border-b-1 border-ink bg-ink text-paper-card">
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-baseline gap-2">
           <span className="font-display text-xl tracking-tight">Supply Chain Tracker</span>
