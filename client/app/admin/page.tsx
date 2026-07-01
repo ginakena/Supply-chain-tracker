@@ -242,12 +242,12 @@ export default function AdminPage() {
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink">Desk 04</p>
         <h1 className="mt-1 font-display text-3xl font-semibold">Admin</h1>
       </div>
-      <RoleGate role="ADMIN" roleLabel="admin">
+      {/* <RoleGate role="ADMIN" roleLabel="admin"> */}
         <div className="space-y-6">
           <GrantRevokeForm />
           <RoleChecker />
         </div>
-      </RoleGate>
+      {/* </RoleGate> */}
     </div>
   );
 }
