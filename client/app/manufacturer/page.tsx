@@ -125,7 +125,7 @@ export default function ManufacturerPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-stamp-rust">Desk 01</p>
+        
         <h1 className="mt-1 font-display text-3xl font-semibold">Manufacturer</h1>
       </div>
       <RoleGate role="MANUFACTURER" roleLabel="manufacturer">

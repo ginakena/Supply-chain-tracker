@@ -179,7 +179,7 @@ export default function RetailerPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-stamp-green">Desk 03</p>
+        
         <h1 className="mt-1 font-display text-3xl font-semibold">Retailer</h1>
       </div>
       <RoleGate role="RETAILER" roleLabel="retailer">

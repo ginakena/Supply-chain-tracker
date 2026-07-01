@@ -142,7 +142,7 @@ export default function ShipperPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-stamp-amber">Desk 02</p>
+        
         <h1 className="mt-1 font-display text-3xl font-semibold">Shipper</h1>
       </div>
       <RoleGate role="SHIPPER" roleLabel="shipper">
