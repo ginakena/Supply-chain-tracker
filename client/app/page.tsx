@@ -21,7 +21,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">Desks</h2>
+        
         <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <RoleCard
             href="/manufacturer"
