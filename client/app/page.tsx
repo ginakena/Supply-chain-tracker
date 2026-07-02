@@ -25,25 +25,21 @@ export default function HomePage() {
         <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <RoleCard
             href="/manufacturer"
-            index="01"
             title="Manufacturer"
             description="Register a new product and mint its certificate of authenticity."
           />
           <RoleCard
             href="/shipper"
-            index="02"
             title="Shipper"
             description="Log pickup and in-transit checkpoints as goods move."
           />
           <RoleCard
             href="/retailer"
-            index="03"
             title="Retailer"
             description="Check in deliveries and finalize sales to consumers."
           />
           <RoleCard
             href="/admin"
-            index="04"
             title="Admin"
             description="Grant or revoke manufacturer, shipper and retailer credentials."
           />
