@@ -4,6 +4,9 @@
 
 :root {
   color-scheme: light;
+  --font-fraunces: Georgia, serif;
+  --font-plex-sans: Arial, Helvetica, sans-serif;
+  --font-plex-mono: "Courier New", monospace;
 }
 
 body {
